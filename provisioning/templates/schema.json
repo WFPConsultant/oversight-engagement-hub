@@ -1,0 +1,80 @@
+﻿{
+  "$comment": "Declarative definition of columns, content types, lists and views. Read by provisioning/Deploy-Common.ps1. Fictional organization: Example Oversight Office (EOO).",
+  "group": "EOO Oversight",
+  "columns": [
+    { "name": "EOOEngagementRef", "title": "Engagement Ref", "type": "Text", "required": true, "indexed": true, "unique": true, "description": "Unique engagement reference, e.g. AUD-2026-001" },
+    { "name": "EOOEngagementType", "title": "Engagement Type", "type": "Choice", "choices": ["Audit", "Inspection", "Advisory", "Investigation"], "required": true },
+    { "name": "EOOEngagementStatus", "title": "Engagement Status", "type": "Choice", "choices": ["Planning", "Fieldwork", "Reporting", "Follow-up", "Closed"], "default": "Planning", "required": true, "indexed": true },
+    { "name": "EOORiskRating", "title": "Risk Rating", "type": "Choice", "choices": ["Low", "Medium", "High"], "default": "Medium" },
+    { "name": "EOOLead", "title": "Engagement Lead", "type": "User", "required": true },
+    { "name": "EOOStartDate", "title": "Start Date", "type": "DateTime" },
+    { "name": "EOODueDate", "title": "Due Date", "type": "DateTime", "required": true, "indexed": true },
+    { "name": "EOOBudgetDays", "title": "Budget (days)", "type": "Number", "min": 0 },
+    { "name": "EOOConfidentiality", "title": "Confidentiality", "type": "Choice", "choices": ["Internal", "Confidential", "Strictly Confidential"], "default": "Confidential", "required": true },
+
+    { "name": "EOODocEngagementRef", "title": "Engagement Ref", "type": "Text", "indexed": true, "description": "Engagement reference this document belongs to (not unique)" },
+    { "name": "EOORecommendationRef", "title": "Recommendation Ref", "type": "Text", "required": true, "indexed": true, "unique": true },
+    { "name": "EOOEngagement", "title": "Engagement", "type": "Lookup", "lookupList": "Engagements", "showField": "Title", "required": true, "indexed": true },
+    { "name": "EOOPriority", "title": "Priority", "type": "Choice", "choices": ["High", "Medium", "Low"], "default": "Medium", "required": true },
+    { "name": "EOORecommendationStatus", "title": "Recommendation Status", "type": "Choice", "choices": ["Open", "In Progress", "Implemented", "Closed", "Not Accepted"], "default": "Open", "required": true, "indexed": true },
+    { "name": "EOOOwner", "title": "Action Owner", "type": "User", "required": true },
+    { "name": "EOOTargetDate", "title": "Target Date", "type": "DateTime", "required": true, "indexed": true },
+    { "name": "EOOImplementedDate", "title": "Implemented Date", "type": "DateTime" },
+    { "name": "EOOManagementResponse", "title": "Management Response", "type": "Note" }
+  ],
+  "contentTypes": [
+    {
+      "name": "EOO Engagement",
+      "parent": "Item",
+      "description": "An audit, inspection, advisory or investigation engagement.",
+      "fields": ["EOOEngagementRef", "EOOEngagementType", "EOOEngagementStatus", "EOORiskRating", "EOOLead", "EOOStartDate", "EOODueDate", "EOOBudgetDays", "EOOConfidentiality"]
+    },
+    {
+      "name": "EOO Recommendation",
+      "parent": "Item",
+      "description": "A recommendation issued from an engagement, tracked to implementation.",
+      "fields": ["EOORecommendationRef", "EOOEngagement", "EOOPriority", "EOORecommendationStatus", "EOOOwner", "EOOTargetDate", "EOOImplementedDate", "EOOManagementResponse"]
+    },
+    {
+      "name": "EOO Engagement Document",
+      "parent": "Document",
+      "description": "A working paper or report linked to an engagement.",
+      "fields": ["EOODocEngagementRef", "EOOConfidentiality"]
+    }
+  ],
+  "lists": [
+    {
+      "key": "Engagements", "title": "Engagements", "template": "GenericList", "contentType": "EOO Engagement",
+      "versioning": true, "indexedFields": ["EOOEngagementRef"],
+      "views": [
+        { "title": "Active Engagements", "default": true, "fields": ["LinkTitle", "EOOEngagementRef", "EOOEngagementStatus", "EOOLead", "EOODueDate", "EOORiskRating"],
+          "query": "<Where><Neq><FieldRef Name='EOOEngagementStatus'/><Value Type='Choice'>Closed</Value></Neq></Where><OrderBy><FieldRef Name='EOODueDate' Ascending='TRUE'/></OrderBy>" },
+        { "title": "Overdue", "fields": ["LinkTitle", "EOOEngagementRef", "EOOEngagementStatus", "EOOLead", "EOODueDate"],
+          "query": "<Where><And><Neq><FieldRef Name='EOOEngagementStatus'/><Value Type='Choice'>Closed</Value></Neq><Lt><FieldRef Name='EOODueDate'/><Value Type='DateTime'><Today/></Value></Lt></And></Where><OrderBy><FieldRef Name='EOODueDate' Ascending='TRUE'/></OrderBy>" },
+        { "title": "By Status", "fields": ["LinkTitle", "EOOEngagementRef", "EOOLead", "EOODueDate"], "groupBy": "EOOEngagementStatus",
+          "query": "<OrderBy><FieldRef Name='EOODueDate' Ascending='TRUE'/></OrderBy>" }
+      ]
+    },
+    {
+      "key": "Recommendations", "title": "Recommendations", "template": "GenericList", "contentType": "EOO Recommendation",
+      "versioning": true, "indexedFields": ["EOORecommendationRef"],
+      "views": [
+        { "title": "Open Recommendations", "default": true, "fields": ["LinkTitle", "EOORecommendationRef", "EOOEngagement", "EOOPriority", "EOORecommendationStatus", "EOOOwner", "EOOTargetDate"],
+          "query": "<Where><In><FieldRef Name='EOORecommendationStatus'/><Values><Value Type='Choice'>Open</Value><Value Type='Choice'>In Progress</Value></Values></In></Where><OrderBy><FieldRef Name='EOOTargetDate' Ascending='TRUE'/></OrderBy>" },
+        { "title": "Overdue", "fields": ["LinkTitle", "EOORecommendationRef", "EOOEngagement", "EOOPriority", "EOOOwner", "EOOTargetDate"],
+          "query": "<Where><And><In><FieldRef Name='EOORecommendationStatus'/><Values><Value Type='Choice'>Open</Value><Value Type='Choice'>In Progress</Value></Values></In><Lt><FieldRef Name='EOOTargetDate'/><Value Type='DateTime'><Today/></Value></Lt></And></Where><OrderBy><FieldRef Name='EOOTargetDate' Ascending='TRUE'/></OrderBy>" },
+        { "title": "By Engagement", "fields": ["LinkTitle", "EOORecommendationRef", "EOOPriority", "EOORecommendationStatus", "EOOTargetDate"], "groupBy": "EOOEngagement",
+          "query": "<OrderBy><FieldRef Name='EOOTargetDate' Ascending='TRUE'/></OrderBy>" }
+      ]
+    },
+    {
+      "key": "EngagementDocuments", "title": "Engagement Documents", "template": "DocumentLibrary", "contentType": "EOO Engagement Document",
+      "versioning": true, "majorVersions": 50, "indexedFields": ["EOODocEngagementRef"],
+      "views": [
+        { "title": "By Engagement", "default": true, "fields": ["DocIcon", "LinkFilename", "EOODocEngagementRef", "EOOConfidentiality", "Modified", "Editor"], "groupBy": "EOODocEngagementRef",
+          "query": "<OrderBy><FieldRef Name='Modified' Ascending='FALSE'/></OrderBy>" }
+      ]
+    }
+  ]
+}
+

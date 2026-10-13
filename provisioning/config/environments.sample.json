@@ -1,0 +1,18 @@
+{
+  "dev": {
+    "tenantName": "YOUR-DEV-TENANT",
+    "clientId": "00000000-0000-0000-0000-000000000000",
+    "hub": { "visitors": ["all-office-staff@YOUR-DEV-TENANT.onmicrosoft.com"] },
+    "audit": {
+      "owners": ["owner1@YOUR-DEV-TENANT.onmicrosoft.com"],
+      "members": ["auditor1@YOUR-DEV-TENANT.onmicrosoft.com"],
+      "visitors": ["all-office-staff@YOUR-DEV-TENANT.onmicrosoft.com"]
+    },
+    "investigations": {
+      "owners": ["owner1@YOUR-DEV-TENANT.onmicrosoft.com"],
+      "members": ["investigator1@YOUR-DEV-TENANT.onmicrosoft.com"]
+    }
+  },
+  "test": { "tenantName": "YOUR-TEST-TENANT", "clientId": "00000000-0000-0000-0000-000000000000", "hub": { "visitors": [] }, "audit": { "owners": [], "members": [], "visitors": [] }, "investigations": { "owners": [], "members": [] } },
+  "prod": { "tenantName": "YOUR-PROD-TENANT", "clientId": "00000000-0000-0000-0000-000000000000", "hub": { "visitors": [] }, "audit": { "owners": [], "members": [], "visitors": [] }, "investigations": { "owners": [], "members": [] } }
+}
