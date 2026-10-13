@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "oversight-engagement-hub-client-side-solution",
+    "id": "ae454076-f884-45b4-b41a-cdb4c6ef815c",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.23.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "oversight-engagement-hub description"
+      },
+      "longDescription": {
+        "default": "oversight-engagement-hub description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "oversight-engagement-hub Feature",
+        "description": "The feature that activates elements of the oversight-engagement-hub solution.",
+        "id": "43489fcc-9929-488f-baea-ae62fa6ac865",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/oversight-engagement-hub.sppkg"
+  }
+}

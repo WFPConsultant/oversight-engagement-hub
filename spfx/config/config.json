@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "engagement-tracker-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/engagementTracker/EngagementTrackerWebPart.js",
+          "manifest": "./src/webparts/engagementTracker/EngagementTrackerWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "EngagementTrackerWebPartStrings": "lib/webparts/engagementTracker/loc/{locale}.js"
+  }
+}
