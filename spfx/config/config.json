@@ -9,10 +9,37 @@
           "manifest": "./src/webparts/engagementTracker/EngagementTrackerWebPart.manifest.json"
         }
       ]
+    },
+    "recommendation-dashboard-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/recommendationDashboard/RecommendationDashboardWebPart.js",
+          "manifest": "./src/webparts/recommendationDashboard/RecommendationDashboardWebPart.manifest.json"
+        }
+      ]
+    },
+    "my-tasks-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/myTasks/MyTasksWebPart.js",
+          "manifest": "./src/webparts/myTasks/MyTasksWebPart.manifest.json"
+        }
+      ]
+    },
+    "confidentiality-banner-application-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/confidentialityBanner/ConfidentialityBannerApplicationCustomizer.js",
+          "manifest": "./src/extensions/confidentialityBanner/ConfidentialityBannerApplicationCustomizer.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "EngagementTrackerWebPartStrings": "lib/webparts/engagementTracker/loc/{locale}.js"
+    "EngagementTrackerWebPartStrings": "lib/webparts/engagementTracker/loc/{locale}.js",
+    "RecommendationDashboardWebPartStrings": "lib/webparts/recommendationDashboard/loc/{locale}.js",
+    "MyTasksWebPartStrings": "lib/webparts/myTasks/loc/{locale}.js",
+    "ConfidentialityBannerApplicationCustomizerStrings": "lib/extensions/confidentialityBanner/loc/{locale}.js"
   }
 }

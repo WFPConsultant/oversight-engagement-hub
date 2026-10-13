@@ -16,13 +16,11 @@
   "supportsThemeVariants": true,
 
   "preconfiguredEntries": [{
-    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
-    "group": { "default": "Advanced" },
-    "title": { "default": "EngagementTracker" },
-    "description": { "default": "Filterable, sortable table of engagements" },
-    "officeFabricIconFontName": "Page",
-    "properties": {
-      "description": "EngagementTracker"
-    }
+    "groupId": "3f7c2a10-6a4b-4d55-9e1d-0b5d6c1a7e21",
+    "group": { "default": "Oversight Engagement Hub" },
+    "title": { "default": "Engagement Tracker" },
+    "description": { "default": "Filterable, sortable table of engagements with status, due dates and leads." },
+    "officeFabricIconFontName": "Table",
+    "properties": { "title": "Engagement Tracker", "showClosed": false, "dueSoonDays": 14, "useDemoData": false }
   }]
 }

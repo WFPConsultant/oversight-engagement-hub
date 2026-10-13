@@ -1,16 +1,38 @@
 declare interface IEngagementTrackerWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
-  DescriptionFieldLabel: string;
-  AppLocalEnvironmentSharePoint: string;
-  AppLocalEnvironmentTeams: string;
-  AppLocalEnvironmentOffice: string;
-  AppLocalEnvironmentOutlook: string;
-  AppSharePointEnvironment: string;
-  AppTeamsTabEnvironment: string;
-  AppOfficeEnvironment: string;
-  AppOutlookEnvironment: string;
-  UnknownEnvironment: string;
+  DataGroupName: string;
+  TitleFieldLabel: string;
+  DefaultTitle: string;
+  ShowClosedLabel: string;
+  DueSoonDaysLabel: string;
+  UseDemoDataLabel: string;
+  UseDemoDataOn: string;
+  UseDemoDataOff: string;
+  DemoBanner: string;
+  Loading: string;
+  LoadError: string;
+  Retry: string;
+  SearchLabel: string;
+  SearchPlaceholder: string;
+  StatusFilterLabel: string;
+  StatusAll: string;
+  ShowClosedToggle: string;
+  ColRef: string;
+  ColTitle: string;
+  ColType: string;
+  ColStatus: string;
+  ColLead: string;
+  ColDue: string;
+  ColRisk: string;
+  Overdue: string;
+  DueSoon: string;
+  ResultsCount: string;
+  Empty: string;
+  GridLabel: string;
+  SortedAscending: string;
+  SortedDescending: string;
+  NotSorted: string;
 }
 
 declare module 'EngagementTrackerWebPartStrings' {
