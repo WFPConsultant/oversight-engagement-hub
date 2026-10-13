@@ -1,0 +1,13 @@
+﻿node_modules/
+dist/
+lib/
+temp/
+release/
+sharepoint/solution/
+coverage/
+*.log
+.env
+provisioning/config/environments.json
+provisioning/config/*.local.json
+.vscode/*
+!.vscode/extensions.json
