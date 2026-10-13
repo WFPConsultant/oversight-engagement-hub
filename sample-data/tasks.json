@@ -1,0 +1,74 @@
+[
+  {
+    "id": "t1",
+    "title": "Confirm evidence received \u2013 AUD-2026-002",
+    "source": "SharePoint",
+    "status": "inProgress",
+    "dueOffsetDays": 14,
+    "engagementRef": "AUD-2026-002",
+    "webUrl": "https://example.invalid/tasks/1"
+  },
+  {
+    "id": "t2",
+    "title": "Prepare fieldwork plan \u2013 INV-2026-002",
+    "source": "Planner",
+    "status": "notStarted",
+    "dueOffsetDays": 9,
+    "engagementRef": "INV-2026-002",
+    "webUrl": "https://example.invalid/tasks/2"
+  },
+  {
+    "id": "t3",
+    "title": "Follow up with action owner \u2013 AUD-2026-006",
+    "source": "To Do",
+    "status": "inProgress",
+    "dueOffsetDays": 7,
+    "engagementRef": "AUD-2026-006",
+    "webUrl": "https://example.invalid/tasks/3"
+  },
+  {
+    "id": "t4",
+    "title": "Review draft report \u2013 INS-2026-001",
+    "source": "To Do",
+    "status": "inProgress",
+    "dueOffsetDays": -4,
+    "engagementRef": "INS-2026-001",
+    "webUrl": "https://example.invalid/tasks/4"
+  },
+  {
+    "id": "t5",
+    "title": "Review draft report \u2013 AUD-2026-004",
+    "source": "Planner",
+    "status": "inProgress",
+    "dueOffsetDays": 0,
+    "engagementRef": "AUD-2026-004",
+    "webUrl": "https://example.invalid/tasks/5"
+  },
+  {
+    "id": "t6",
+    "title": "Prepare fieldwork plan \u2013 AUD-2026-002",
+    "source": "SharePoint",
+    "status": "notStarted",
+    "dueOffsetDays": -2,
+    "engagementRef": "AUD-2026-002",
+    "webUrl": "https://example.invalid/tasks/6"
+  },
+  {
+    "id": "t7",
+    "title": "Follow up with action owner \u2013 AUD-2026-001",
+    "source": "Planner",
+    "status": "notStarted",
+    "dueOffsetDays": 6,
+    "engagementRef": "AUD-2026-001",
+    "webUrl": "https://example.invalid/tasks/7"
+  },
+  {
+    "id": "t8",
+    "title": "Review draft report \u2013 INV-2026-002",
+    "source": "Planner",
+    "status": "notStarted",
+    "dueOffsetDays": 14,
+    "engagementRef": "INV-2026-002",
+    "webUrl": "https://example.invalid/tasks/8"
+  }
+]
