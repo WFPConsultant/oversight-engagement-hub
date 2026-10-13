@@ -1,14 +1,14 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "oversight-engagement-hub-client-side-solution",
+    "name": "Oversight Engagement Hub (portfolio demo)",
     "id": "ae454076-f884-45b4-b41a-cdb4c6ef815c",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "developer": {
-      "name": "",
+      "name": "Self-directed portfolio project",
       "websiteUrl": "",
       "privacyUrl": "",
       "termsOfUseUrl": "",
@@ -16,10 +16,10 @@
     },
     "metadata": {
       "shortDescription": {
-        "default": "oversight-engagement-hub description"
+        "default": "Fictional oversight office engagement tracking web parts (portfolio demo)"
       },
       "longDescription": {
-        "default": "oversight-engagement-hub description"
+        "default": "Engagement Tracker, Recommendation Follow-up dashboard, My Tasks and a confidentiality banner extension. Self-directed portfolio project using fictional data."
       },
       "screenshotPaths": [],
       "videoUrl": "",
@@ -27,10 +27,16 @@
     },
     "features": [
       {
-        "title": "oversight-engagement-hub Feature",
-        "description": "The feature that activates elements of the oversight-engagement-hub solution.",
+        "title": "Oversight Engagement Hub",
+        "description": "Activates the Oversight Engagement Hub components.",
         "id": "43489fcc-9929-488f-baea-ae62fa6ac865",
         "version": "1.0.0.0"
+      }
+    ],
+    "webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Tasks.Read"
       }
     ]
   },
