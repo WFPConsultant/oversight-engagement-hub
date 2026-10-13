@@ -76,4 +76,14 @@ Ensure-Navigation @(
     @{ Title = 'Engagement Documents'; Url = "$siteUrl/Engagement%20Documents" }
 )
 
+# 5. Confidentiality banner (SPFx Application Customizer) ----------------------
+# Requires the .sppkg to be uploaded to the app catalog and approved first. Component ID = manifest id.
+Write-Host "== Confidentiality banner"
+$bannerId = "66e953a9-ad82-4f09-bba2-014b937fddcb"
+$classification = if ($RestrictVisitors) { 'Strictly Confidential' } else { 'Confidential' }
+if (-not (Get-PnPCustomAction -Scope Web | Where-Object { $_.ClientSideComponentId -eq $bannerId })) {
+    Add-PnPCustomAction -Name 'EOO-ConfidentialityBanner' -Title 'EOO Confidentiality Banner' -Location 'ClientSideExtension.ApplicationCustomizer' `
+        -ClientSideComponentId $bannerId -ClientSideComponentProperties ((@{ classification = $classification } | ConvertTo-Json -Compress)) -Scope Web | Out-Null
+}
+
 Write-Host "Done: $siteUrl"
