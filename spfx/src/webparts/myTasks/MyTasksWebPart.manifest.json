@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "2874c11e-1119-4b27-94a7-363c31b2ada9",
+  "alias": "MyTasksWebPart",
+  "componentType": "WebPart",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart", "TeamsPersonalApp", "TeamsTab", "SharePointFullPage"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [{
+    "groupId": "3f7c2a10-6a4b-4d55-9e1d-0b5d6c1a7e21",
+    "group": { "default": "Oversight Engagement Hub" },
+    "title": { "default": "My Tasks" },
+    "description": { "default": "Your open Planner and To Do tasks, via Microsoft Graph." },
+    "officeFabricIconFontName": "TaskLogo",
+    "properties": { "title": "My Tasks", "maxItems": 15, "useDemoData": false }
+  }]
+}
